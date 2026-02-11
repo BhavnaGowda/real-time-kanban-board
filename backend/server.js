@@ -9,18 +9,25 @@ const io = new Server(server, {
   cors: { origin: "*" },
 });
 
+// ================================
 // In-memory task storage
+// ================================
 let tasks = [];
 
+// ================================
+// WebSocket Logic
+// ================================
 io.on("connection", (socket) => {
   console.log("✅ User connected");
 
-  // Send all tasks to client
+  // Send all tasks to newly connected client
   socket.on("sync:tasks", () => {
     socket.emit("sync:tasks", tasks);
   });
 
-  // Create task
+  // ================================
+  // Create Task
+  // ================================
   socket.on("task:create", (task) => {
     const newTask = {
       id: task.id,
@@ -35,25 +42,35 @@ io.on("connection", (socket) => {
     io.emit("sync:tasks", tasks);
   });
 
-  // Update task (title, priority, category, attachments)
+  // ================================
+  // Update Task
+  // ================================
   socket.on("task:update", (updatedTask) => {
     tasks = tasks.map((task) =>
-      task.id === updatedTask.id ? { ...task, ...updatedTask } : task
+      task.id === updatedTask.id
+        ? { ...task, ...updatedTask }
+        : task
     );
 
     io.emit("sync:tasks", tasks);
   });
 
-  // Move task (status change)
+  // ================================
+  // Move Task (Change Status)
+  // ================================
   socket.on("task:move", ({ id, status }) => {
     tasks = tasks.map((task) =>
-      task.id === id ? { ...task, status } : task
+      task.id === id
+        ? { ...task, status }
+        : task
     );
 
     io.emit("sync:tasks", tasks);
   });
 
-  // Delete task
+  // ================================
+  // Delete Task
+  // ================================
   socket.on("task:delete", (id) => {
     tasks = tasks.filter((task) => task.id !== id);
     io.emit("sync:tasks", tasks);
@@ -64,6 +81,18 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(5000, () => {
-  console.log("🚀 Server running on port 5000");
+// ================================
+// Health Check Route (Optional but Professional)
+// ================================
+app.get("/", (req, res) => {
+  res.send("WebSocket Kanban Backend Running 🚀");
+});
+
+// ================================
+// Dynamic Port (IMPORTANT FOR RENDER)
+// ================================
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
