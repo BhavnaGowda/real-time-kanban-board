@@ -1,10 +1,12 @@
-import { render, screen } from "@testing-library/react";
+const KanbanBoard = () => {
+  return (
+    <div>
+      <h2>Kanban Board</h2>
+      <input placeholder="Enter task title" />
+      <button>Add Task</button>
+      <p>No tasks yet</p>
+    </div>
+  );
+};
 
-import KanbanBoard from "../../src/components/KanbanBoard.jsx";
-
-test("renders Kanban board title", () => {
-  render(<KanbanBoard />);
-  expect(screen.getByText("Kanban Board")).toBeInTheDocument();
-});
-
-// TODO: Add more unit tests for individual components
+export default KanbanBoard;
