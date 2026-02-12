@@ -1,4 +1,4 @@
-# 📝 WebSocket-Powered Kanban Board - Candidate Guide
+# 📝 WebSocket-Powered Kanban Board 
 
 ## 📌 Project Overview
 
@@ -63,132 +63,101 @@ Task D   →  Task E        →  Task F
 
 ---
 
-## 🚀 Take Home Task
+🚀 Real-Time Kanban Board
 
-### 🔹 Features to Implement
+A full-stack real-time Kanban board built using React, WebSockets (Socket.IO), and modern testing frameworks.
 
-- Create, update, delete, and move tasks between columns.
-- Upload attachments for tasks.
-- Assign task priority & category using a select dropdown.
-- Visualize task progress using a graph/chart.
-- Sync updates in real-time using WebSockets.
-- Test the application using Vitest + React testing library (unit/integration) and Playwright (E2E tests).
+🌐 Live Demo
 
-### 1️⃣ Backend (Node.js + WebSocket)
+🔗 Frontend: [Your Vercel Link]
+🔗 Backend: [Your Render Link]
 
-- Set up a WebSocket (Socket.IO or native WebSockets) server.
-- Store tasks in memory or use a database (MongoDB preferred).
-- Implement WebSocket events for:
-  - `task:create` → Adds a new task.
-  - `task:update` → Updates a task (title, description, priority, category, attachments).
-  - `task:move` → Moves a task between columns.
-  - `task:delete` → Removes a task.
-  - `sync:tasks` → Sends all tasks to newly connected clients.
+✨ Features
 
-### 2️⃣ Frontend (React + WebSocket)
+✅ Create, update, delete tasks
 
-Kanban Board Features:
+✅ Drag-and-drop between columns
 
-- Implement a Kanban board UI with the following columns:
-  - To Do
-  - In Progress
-  - Done
-- Tasks should be draggable between columns using React DnD or a similar library.
-- The UI should update in real-time when a user makes changes.
-- Display a loading indicator when waiting for the server to sync.
+✅ Real-time synchronization using WebSockets
 
-Additional UI Features:
+✅ Priority & category selection
 
-1. **Priority & Category Selection (Dropdown)**
+✅ File upload with image preview
 
-   - Each task should have a priority (Low, Medium, High).
-   - Each task should have a category (Bug, Feature, Enhancement).
-   - Implement using a React select dropdown (e.g., react-select).
+✅ Live progress visualization (Recharts)
 
-2. **File Upload**
+✅ Multi-client sync support
 
-   - Users can upload attachments (e.g., images, PDFs) to tasks.
-   - Show a preview of the uploaded file (if it's an image).
-   - Store the file URL in state (simulated backend storage).
+✅ Unit, Integration & E2E testing
 
-3. **Task Progress Graph (Chart.js or Recharts)**
-   - Implement a task progress chart that shows:
-     - Number of tasks in each column.
-     - The percentage of completion (Done vs. total tasks).
-   - Update the graph in real-time as tasks move.
+🧠 Tech Stack
+Frontend
 
-### 3️⃣ Unit & Integration Testing (Vitest + React Testing Library)
+React (Vite)
 
-- Unit test core functions:
-  - Adding, updating, and deleting tasks.
-  - WebSocket connection logic.
-- Integration test:
-  - Ensure WebSocket updates correctly sync state across multiple clients.
-  - Validate drag-and-drop functionality for moving tasks.
+@hello-pangea/dnd
 
-### 4️⃣ E2E Testing (Playwright)
+Recharts
 
-✅ **Kanban Board**
+Socket.io-client
 
-- User can create a task.
-- User can drag and drop a task between columns.
-- UI updates in real-time when another user modifies tasks.
-- User can delete a task and see it removed.
+Vitest
 
-✅ **Dropdown Select Testing**
+Playwright
 
-- User can select a priority level.
-- User can change the task category and verify the update.
+Backend
 
-✅ **File Upload Testing**
+Node.js
 
-- User can upload a file.
-- Uploaded files display correctly.
-- Invalid files (e.g., non-supported formats) show an error message.
+Express
 
-✅ **Graph Testing**
+Socket.IO
 
-- Task counts update correctly in the graph as tasks move.
-- Graph re-renders dynamically when new tasks are added.
+Deployment
 
----
+Vercel (Frontend)
 
-## 📊 Evaluation Criteria
+Render (Backend)
 
-| **Criteria**                      | **Weightage** | **Key Points**                                     |
-| --------------------------------- | ------------- | -------------------------------------------------- |
-| **WebSocket Implementation**      | 10%           | Real-time updates, event handling, error handling  |
-| **React Component Structure**     | 10%           | Proper separation of concerns, reusable components |
-| **Testing**                       | 50%           | Unit, integration, and E2E tests passing           |
-| **Code Quality & Best Practices** | 20%           | Clean, well-documented, readable code              |
-| **UI & UX**                       | 10%           | Intuitive design, responsive layout                |
+📊 Architecture
+Client (React)
+   ↕ WebSocket (Socket.IO)
+Server (Node + Express)
 
----
 
-## 🔗 Useful Resources
+Tasks are stored in memory and synchronized across all connected clients in real time.
 
-📘 **Kanban & WebSockets**
+🧪 Testing
 
-- [What is Kanban? (Atlassian)](https://www.atlassian.com/agile/kanban)
-- [WebSockets in Node.js (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+Unit Tests (Vitest)
 
-🧪 **Vitest (Unit & Integration Testing)**
+Integration Tests
 
-- [Frontend Testing Guide](https://www.netguru.com/blog/front-end-testing)
-- [Vitest Docs](https://vitest.dev/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+E2E Tests (Playwright)
 
-🎭 **Playwright (E2E Testing)**
+All tests passing before deployment.
 
-- [Playwright Docs](https://playwright.dev/)
+🚀 Run Locally
+Backend
+cd backend
+npm install
+node server.js
 
----
+Frontend
+cd frontend
+npm install
+npm run dev
 
-## 🚀 Next Steps for Candidates
+📌 Project Highlights
 
-🎯 Implement **WebSocket logic** in the Kanban board  
-🎯 Add **state management** for tasks  
-🎯 Write **unit, integration, and E2E tests**  
-🎯 Deploy and verify real-time updates
+Real-time event-driven architecture
+
+Clean component separation
+
+Responsive UI/UX design
+
+Production deployment setup
+
+CI/CD ready structure
 
 🛠 **Final Tip:** Pay attention to **code quality, real-time interactions, and testing coverage**. Good luck! 🚀
