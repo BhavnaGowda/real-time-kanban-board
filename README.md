@@ -1,163 +1,225 @@
-# 📝 WebSocket-Powered Kanban Board 
+# 🚀 WebSocket-Powered Real-Time Kanban Board
+
+A full-stack real-time Kanban board built using **React**, **Socket.IO**, and modern testing frameworks.
+
+---
 
 ## 📌 Project Overview
 
-This project involves building a **real-time Kanban board** where users can **add, update, delete, move tasks between columns, upload attachments, assign priority & category, and visualize progress**.
+This project demonstrates a real-time task management system where users can:
 
-The goal is to assess proficiency in:  
-✅ **React** (for UI)  
-✅ **WebSockets (Socket.IO)** (for real-time updates)  
-✅ **Vitest + React Testing Library** (for unit & integration testing)  
-✅ **Playwright** (for end-to-end testing)
+- Add tasks
+- Update tasks
+- Delete tasks
+- Drag & drop between columns
+- Upload file attachments
+- Assign priority & category
+- Visualize progress dynamically
+- Sync changes across multiple clients in real-time
+
+This project evaluates proficiency in:
+
+- ✅ React (UI & state management)
+- ✅ WebSockets (Socket.IO)
+- ✅ Vitest + React Testing Library (Unit & Integration Testing)
+- ✅ Playwright (End-to-End Testing)
+- ✅ Deployment (Render + Vercel)
+
+---
+
+## 🌐 Live Demo
+
+🔗 **Frontend (Vercel):https://real-time-kanban-board-ynxn-f8qjhgn0m-bhavnagowdas-projects.vercel.app
+🔗 **Backend (Render):https://real-time-kanban-board-08n3.onrender.com
 
 ---
 
 ## 📂 Project Structure
 
 ```
-websocket-kanban-vitest-playwright
+real-time-kanban-board
 │── backend/                     # Node.js WebSocket server
-│   ├── server.js                 # Express + Socket.IO WebSocket setup
-│   ├── package.json              # Backend dependencies
-│
-│── frontend/                     # React app
-│   ├── src/
-│   │   ├── components/           # UI components
-│   │   │   ├── KanbanBoard.jsx
-│   │   ├── tests/                # All test cases
-│   │   │   ├── unit/             # Unit tests (Vitest)
-│   │   │   ├── integration/      # Integration tests (Vitest)
-│   │   │   ├── e2e/              # End-to-end tests (Playwright)
+│   ├── server.js                # Express + Socket.IO setup
 │   ├── package.json
 │
-└── README.md                     # Project guide
+│── frontend/                    # React (Vite) application
+│   ├── src/
+│   │   ├── components/          # UI components
+│   │   ├── tests/
+│   │   │   ├── unit/            # Unit tests (Vitest)
+│   │   │   ├── integration/     # Integration tests
+│   │   │   ├── e2e/             # Playwright tests
+│   ├── package.json
+│
+└── README.md
 ```
 
 ---
 
-## 📌 What is Kanban?
+## 🏗 What is Kanban?
 
-Kanban is a **workflow management system** that visually organizes tasks into columns representing different stages of work.
+Kanban is a workflow visualization system that organizes tasks into stages.
 
-### 🏗 Example Board:
+### Example Board
 
-```
-To Do       In Progress      Done
-----------------------------------
-Task A   →  Task B        →  Task C
-Task D   →  Task E        →  Task F
-```
-
-### 🔍 Reference Applications:
-
-| Kanban App      | Description                 | Link                                                                   |
-| --------------- | --------------------------- | ---------------------------------------------------------------------- |
-| **Trello**      | Task management tool        | [trello.com](https://trello.com/)                                      |
-| **Jira Kanban** | Agile development workflows | [atlassian.com/software/jira](https://www.atlassian.com/software/jira) |
-| **ClickUp**     | Project management tool     | [clickup.com](https://www.clickup.com/)                                |
-
-🔗 **Open-source Kanban boards:**
-
-- **[Wekan](https://github.com/wekan/wekan)** – Self-hosted Trello alternative
-- **[Planka](https://github.com/plankanban/planka)** – Open-source React Kanban
+| To Do | In Progress | Done |
+|-------|------------|------|
+| Task A | Task B | Task C |
+| Task D | Task E | Task F |
 
 ---
 
-🚀 Real-Time Kanban Board
+## ✨ Features Implemented
 
-A full-stack real-time Kanban board built using React, WebSockets (Socket.IO), and modern testing frameworks.
+### Core Features
 
-🌐 Live Demo
+- ✅ Create tasks
+- ✅ Update tasks
+- ✅ Delete tasks
+- ✅ Move tasks between columns (Drag & Drop)
+- ✅ Real-time synchronization (WebSockets)
+- ✅ Loading indicator while syncing
 
-🔗 Frontend: [Your Vercel Link]
-🔗 Backend: [Your Render Link]
+### Advanced UI Features
 
-✨ Features
+- ✅ Priority selection (Low, Medium, High)
+- ✅ Category selection (Bug, Feature, Enhancement)
+- ✅ File upload with image preview
+- ✅ Task progress chart (Recharts)
+- ✅ Completion percentage calculation
+- ✅ Responsive & modern UI
 
-✅ Create, update, delete tasks
+---
 
-✅ Drag-and-drop between columns
+## 🧠 Tech Stack
 
-✅ Real-time synchronization using WebSockets
+### Frontend
+- React (Vite)
+- @hello-pangea/dnd (Drag & Drop)
+- Recharts (Charts)
+- Socket.io-client
+- Vitest
+- React Testing Library
+- Playwright
 
-✅ Priority & category selection
+### Backend
+- Node.js
+- Express
+- Socket.IO
 
-✅ File upload with image preview
+### Deployment
+- Vercel (Frontend)
+- Render (Backend)
 
-✅ Live progress visualization (Recharts)
+---
 
-✅ Multi-client sync support
+## 📊 Architecture
 
-✅ Unit, Integration & E2E testing
-
-🧠 Tech Stack
-Frontend
-
-React (Vite)
-
-@hello-pangea/dnd
-
-Recharts
-
-Socket.io-client
-
-Vitest
-
-Playwright
-
-Backend
-
-Node.js
-
-Express
-
-Socket.IO
-
-Deployment
-
-Vercel (Frontend)
-
-Render (Backend)
-
-📊 Architecture
+```
 Client (React)
-   ↕ WebSocket (Socket.IO)
+        ↕ WebSocket (Socket.IO)
 Server (Node + Express)
+```
 
+### Real-Time Flow
 
-Tasks are stored in memory and synchronized across all connected clients in real time.
+1. Client emits event (task:create, task:update, task:move, task:delete)
+2. Server updates in-memory store
+3. Server broadcasts updated task list using `io.emit("sync:tasks")`
+4. All connected clients re-render instantly
 
-🧪 Testing
+---
 
-Unit Tests (Vitest)
+## 🧪 Testing
 
-Integration Tests
+### Unit Testing
+- Add task
+- Delete task
+- Update task logic
 
-E2E Tests (Playwright)
+### Integration Testing
+- WebSocket sync across clients
+- Drag-and-drop state updates
 
-All tests passing before deployment.
+### End-to-End Testing (Playwright)
+- Task creation
+- Drag and drop between columns
+- Dropdown selection
+- File upload & preview
+- Graph updates dynamically
 
-🚀 Run Locally
-Backend
+All tests pass before production deployment.
+
+---
+
+## 🚀 Run Locally
+
+### Backend
+
+```bash
 cd backend
 npm install
 node server.js
+```
 
-Frontend
+Server runs on:
+```
+http://localhost:5000
+```
+
+---
+
+### Frontend
+
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-📌 Project Highlights
+Runs on:
+```
+http://localhost:3000
+```
 
-Real-time event-driven architecture
+---
 
-Clean component separation
+## 📈 Evaluation Criteria Covered
 
-Responsive UI/UX design
+| Criteria | Status |
+|----------|--------|
+| WebSocket Implementation | ✅ |
+| React Component Structure | ✅ |
+| Testing (Unit + E2E) | ✅ |
+| Code Quality | ✅ |
+| UI/UX | ✅ |
 
-Production deployment setup
+---
 
-CI/CD ready structure
+## 📌 Key Highlights
 
-🛠 **Final Tip:** Pay attention to **code quality, real-time interactions, and testing coverage**. Good luck! 🚀
+- Real-time event-driven architecture
+- Multi-client synchronization
+- Clean component separation
+- Drag-and-drop UX
+- Production-ready deployment
+- CI/CD friendly structure
+- Scalable architecture foundation
+
+---
+
+## 🔮 Future Improvements
+
+- Add MongoDB persistence
+- Add authentication (JWT)
+- Add user-specific boards
+- Add role-based access control
+- Add task deadlines & filters
+
+---
+
+## 👩‍💻 Author
+
+Bhavna Gowda  
+Computer Science Engineering Student  
+Passionate about Full-Stack Development & Real-Time Systems 🚀
